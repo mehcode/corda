@@ -37,7 +37,7 @@ namespace amqp::internal::schema {
                     std::ostream &,
                     const AMQPTypeNotation &);
 
-            enum Type { Composite, Restricted };
+            enum Type { composite_t, restricted_t };
 
         private :
             std::string                 m_name;
@@ -57,9 +57,8 @@ namespace amqp::internal::schema {
 
             virtual Type type() const = 0;
 
-            int dependsOn (const OrderedTypeNotation &) const override = 0;
-            virtual int dependsOn (const class Restricted &) const = 0;
-            virtual int dependsOn (const class Composite &) const = 0;
+            virtual int dependsOnRHS (const Restricted &) const = 0;
+            virtual int dependsOnRHS (const Composite &) const = 0;
     };
 
 }
