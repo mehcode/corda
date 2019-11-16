@@ -15,6 +15,9 @@ namespace test {
 
     uPtr <amqp::internal::schema::Enum>
     eNum (const std::string & e_);
+
+    uPtr <amqp::internal::schema::Composite>
+    comp (const std::string & name_, const std::vector<std::string> &);
 }
 
 /******************************************************************************/

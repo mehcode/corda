@@ -99,3 +99,24 @@ eNum (const std::string & e_) {
 }
 
 /******************************************************************************/
+
+uptr<amqp::internal::schema::Composite>
+test::
+comp (
+        const std::string & name_,
+        const std::vector<std::string> & fields_
+) {
+    auto desc = std::make_unique<Descriptor> (
+            fingerprint());
+
+    std::vector<std::string> provides { };
+
+    Composite (
+    name_,
+    "label",
+    provides,
+    desc,
+    std::vector<std::unique_ptr<Field>> & fields_);
+}
+
+/******************************************************************************/

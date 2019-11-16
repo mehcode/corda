@@ -18,9 +18,9 @@ TEST (List, name) {
 TEST (List, dependsOn1) {
     auto list1 = test::list ("string");
     auto list2 = test::list (list1->name());
-    
-    std::cout << list1->dependsOn (*list2) << std::endl;
-    std::cout << list2->dependsOn (*list1) << std::endl;
+
+    ASSERT_EQ (1, list1->dependsOn (*list2));
+    ASSERT_EQ (2, list2->dependsOn (*list1));
 }
 
 /******************************************************************************/
