@@ -26,7 +26,7 @@ Enum::Enum (
         amqp::internal::schema::Restricted::RestrictedTypes::enum_t)
     , m_source { std::move (source_) }
     , m_enum { name_ }
-    , m_choices (std::move (choices_))
+    , m_choices { std::move (choices_) }
 {
 }
 

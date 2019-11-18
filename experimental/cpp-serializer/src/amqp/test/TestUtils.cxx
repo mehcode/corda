@@ -44,10 +44,10 @@ map (const std::string & of_, const std::string & to_) {
     std::vector<std::string> provides { };
 
     return std::make_unique<Map>(
-            desc,
+            std::move (desc),
             "java.util.Map<" + of_ + ", " + to_ + ">",
             "label",
-            provides,
+            std::move (provides),
             "map"
     );
 }
@@ -62,11 +62,11 @@ list (const std::string & of_) {
 
     std::vector<std::string> provides { };
 
-    return std::make_unique<List>(
-            desc,
+    return std::make_unique<List> (
+            std::move (desc),
             "java.util.List<" + of_ + ">",
             "label",
-            provides,
+            std::move (provides),
             "map"
     );
 }
@@ -88,10 +88,10 @@ eNum (const std::string & e_) {
             (std::make_unique<Choice>(Choice ("b"))));
 
     return std::make_unique<amqp::internal::schema::Enum>(
-            desc,
+            std::move (desc),
             "net.corda." + e_,
             "label",
-            provides,
+            std::move (provides),
             "enum",
             std::move (choices)
     );
@@ -100,12 +100,13 @@ eNum (const std::string & e_) {
 
 /******************************************************************************/
 
-uptr<amqp::internal::schema::Composite>
+uPtr<amqp::internal::schema::Composite>
 test::
 comp (
         const std::string & name_,
         const std::vector<std::string> & fields_
 ) {
+    /*
     auto desc = std::make_unique<Descriptor> (
             fingerprint());
 
@@ -117,6 +118,7 @@ comp (
     provides,
     desc,
     std::vector<std::unique_ptr<Field>> & fields_);
+    */
 }
 
 /******************************************************************************/

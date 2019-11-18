@@ -54,7 +54,7 @@ using namespace amqp::internal::schema;
 
 /******************************************************************************/
 
-TEST (MAP, dependsOn1) {
+TEST (Map, dependsOn1) {
     auto result {
             "level 1\n"
             "    * java.util.List<string>\n"
@@ -97,7 +97,7 @@ TEST (MAP, dependsOn1) {
 
 /******************************************************************************/
 
-TEST (MAP, dependsOn2) {
+TEST (Map, dependsOn2) {
     auto result {
         "level 1\n"
         "    * net.corda.eee\n"

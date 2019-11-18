@@ -4,6 +4,7 @@
 #include <ostream>
 #include <iostream>
 
+#include "debug.h"
 #include "types.h"
 #include "colours.h"
 
@@ -145,6 +146,7 @@ OrderedTypeNotations<T>::insert (
         uPtr<T> && ptr,
         amqp::internal::schema::OrderedTypeNotations<T>::iterator l_
 ) {
+    DBG ("Insert: " << ptr->name() << std::endl);
     /*
      * First we find where this element needs to be added
      */

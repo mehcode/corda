@@ -114,7 +114,11 @@ Restricted::make(
         }
     } else if (source_ == "map") {
         return std::make_unique<amqp::internal::schema::Map> (
-                descriptor_, name_, label_, provides_, source_);
+                std::move (descriptor_),
+                std::move (name_),
+                std::move (label_),
+                std::move (provides_),
+                std::move (source_));
     } else {
         throw std::runtime_error ("Unknown restricted type");
     }
@@ -132,9 +136,9 @@ Restricted::Restricted (
 ) : AMQPTypeNotation (
         std::move (name_),
         std::move (descriptor_))
-  , m_label (std::move (label_))
-  , m_provides (std::move (provides_))
-  , m_source (source_)
+  , m_label { std::move (label_) }
+  , m_provides { std::move (provides_) }
+  , m_source { source_ }
 {
 }
 
